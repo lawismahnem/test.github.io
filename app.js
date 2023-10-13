@@ -31,7 +31,7 @@ app.get('/blogs/create', (req,res) =>{
 });
 
 app.use((req,res) => {
-    res.status(404).sendFile('./views/404.html',{root:__dirname});
-    res.render('404', { title: '404'});
+    res.status(404).render('404', { title: '404'});
+
 })
 //crash course tut #6

@@ -1,34 +1,26 @@
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
-<!--<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Node.js  | <%= title %></title>
-</head>-->
+<%- include("./partials/head.ejs") %>
+
 <body>
-    <%- include('./partials/nav.ejs') %>
-    <!--<nav>
-        <div class="site-title">
-            <a href="/">Blog Lawrence</a>
-            <p>a net ninja sites</p>
-        </div>
-        <ul>
-            <li><a href="/">Blog</a></li>
-            <li><a href="/about">about</a></li>
-            <li><a href="/blogs/create">blogs</a></li>
-        </ul>
-    </nav>-->
-    <div class="blogs content">
-        <h2>All Blogs</h2>
-        <% if (blogs.length > 0) {%>
-            <% blogs.forEach(blog => { %>
-                <h3 class="title"><%= blog.title %></h3>
-                <p class="snippet"><%= blog.snippet %></p>
-        <% }) %>
-        <% } else { %>
-            <p>No blogs to display</p>
-            <%} %>
-    </div>
-    <%- include('./partials/footer.ejs') %>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="blogs content">
+    <h2>All Blogs</h2>
+
+    <% if (blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <a class="single" href="/blogs/<%= blog._id%>">
+          <h3 class="title"><%= blog.title %></h3>
+          <p class="snippet"><%= blog.snippet %></p>
+          <%= console.log(blog) %>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>There are no blogs to display...</p>
+    <% } %>
+    
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
 </body>
 </html>
